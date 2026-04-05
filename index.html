@@ -1,23 +1,646 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+  <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "볼보 EX 시리즈 유지비 전문 가이드 센터",
+        "url": "https://example.com/volvo-ex-series-cost-guide"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "볼보 EX30 EX90 유지비 완벽 분석: 2026년 최저가 충전 비용 및 장단점 가이드",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://example.com/images/volvo-ex-series.jpg",
+            "width": 1200,
+            "height": 675
+        },
+        "datePublished": "2026-03-15T00:00:00+09:00",
+        "dateModified": "2026-04-01T00:00:00+09:00",
+        "author": {
+            "@type": "Person",
+            "name": "EV 분석 전문가 김현수"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "미래 모빌리티 연구소",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://example.com/images/logo.png"
+            }
+        },
+        "description": "볼보 EX30, EX90 구매를 고민하는 분들을 위한 2026년 최신 유지비 가이드. 충전 비용, 보험료, 보조금, 장단점 비교를 통해 합리적인 의사결정을 지원합니다."
+    }
+    </script>
+
+    <style>
+        /* 부드러운 파스텔톤 배경과 명확한 시각 계층 구조 적용 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        header, section, footer {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #00796b; /* 핵심 컬러: 짙은 민트/청록 */
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.05em;
+        }
+        h1 {
+            font-size: 3.2rem;
+            text-align: center;
+            margin-top: 40px;
+            color: #004d40; /* 더 진한 색으로 강조 */
+            padding: 10px 0;
+            border-bottom: 5px double #009688;
+        }
+        h2 {
+            font-size: 2.4rem;
+            border-bottom: 3px solid #009688;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            font-size: 1.6rem;
+            color: #388e3c; /* 서브 강조 컬러: 녹색 계열 */
+            border-left: 5px solid #81c784;
+            padding-left: 10px;
+            margin-top: 25px;
+        }
+        p, ul, ol, li, dl, dt, dd {
+            font-size: 1.15rem;
+            color: #495057;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul, ol {
+            padding-left: 30px;
+        }
+        a {
+            color: #00695c;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #004d40;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        th, td {
+            border: 1px solid #b2dfdb;
+            padding: 15px;
+            text-align: left;
+            background-color: #e0f2f1; /* 연한 민트 배경 */
+        }
+        th {
+            background-color: #004d40;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+        }
+        .table-alt td:nth-child(even) {
+            background-color: #f1f8e9; /* 부드러운 녹색 계열 */
+        }
+        .btn-cta {
+            display: block;
+            width: 80%;
+            margin: 30px auto;
+            padding: 18px 32px;
+            background: #009688;
+            color: #fff;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 6px 15px rgba(0, 150, 136, 0.5);
+            transition: background-color 0.3s ease, transform 0.2s;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-size: 1.2rem;
+        }
+        .btn-cta:hover {
+            background: #004d40;
+            transform: translateY(-2px);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 40px 0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav ul li a {
+            font-weight: 700;
+            font-size: 1.0rem;
+            color: #00796b;
+            padding: 10px 15px;
+            border-radius: 30px;
+            border: 2px solid #b2dfdb;
+            background-color: #e0f2f1;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        nav ul li a:hover,
+        nav ul li a:focus {
+            background-color: #004d40;
+            color: #ffffff;
+            border-color: #004d40;
+            outline: none;
+        }
+        form {
+            background: #f1f8e9;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #c8e6c9;
+        }
+        form label {
+            font-weight: 700;
+            display: block;
+            margin: 14px 0 6px 0;
+            font-size: 1.05rem;
+            color: #1b5e20;
+        }
+        form input[type="text"],
+        form input[type="tel"],
+        form input[type="email"],
+        form input[type="number"],
+        form select,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1.8px solid #a5d6a7;
+            font-size: 1.0rem;
+            transition: border-color 0.3s ease;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        form input:focus,
+        form select:focus,
+        form textarea:focus {
+            border-color: #388e3c;
+            outline: none;
+            box-shadow: 0 0 5px rgba(56, 142, 60, 0.5);
+        }
+        .anchor {
+            display: block;
+            position: relative;
+            top: -100px;
+            visibility: hidden;
+        }
+        footer p {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #004d40;
+            padding: 15px 0;
+            border-top: 1px solid #b2dfdb;
+            margin: 0;
+        }
+        .highlight {
+            font-weight: 900;
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .note-box {
+            background-color: #f0f4c3;
+            border-left: 5px solid #c0ca33;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .section-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        /* 반응형 */
+        @media(max-width: 768px) {
+            nav ul {
+                gap: 10px;
+            }
+            nav ul li a {
+                font-size: 0.9rem;
+                padding: 8px 10px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 2.0rem;
+            }
+            header, section, footer {
+                margin: 15px 12px;
+                padding: 20px 15px;
+            }
+            .btn-cta {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>볼보 EX30 EX90 유지비 완벽 분석: 2026년 최저가 충전 비용 및 장단점 가이드</h1>
+    <p>✅ 볼보 EX 시리즈 구매를 고려하고 계신가요? <span class="highlight">EX30과 EX90의 2026년 최신 유지비</span> 분석, 전기차 보조금 혜택, 그리고 장단점을 꼼꼼하게 비교하여 합리적인 구매 결정을 돕는 전문 가이드입니다.</p>
+    <button class="btn-cta" onclick="location.href='#quote-form'">💰 맞춤 유지비 견적 및 보조금 상담 받기</button>
+</header>
+
+<nav aria-label="페이지 내 주요 정보">
+    <ul>
+        <li><a href="#overview">EX 시리즈 개요</a></li>
+        <li><a href="#cost-factors">유지비 핵심 분석</a></li>
+        <li><a href="#charging-analysis">충전 비용 심층 분석</a></li>
+        <li><a href="#subsidies">보조금 및 세제 혜택</a></li>
+        <li><a href="#pros-cons">장단점 비교</a></li>
+        <li><a href="#insurance-cost">전기차 보험료</a></li>
+        <li><a href="#long-term">장기 유지비 전망</a></li>
+        <li><a href="#quote-form">견적 문의</a></li>
+    </ul>
+</nav>
+
+<section id="overview">
+    <span id="overview-anchor" class="anchor"></span>
+    <h2>볼보 EX 시리즈: EX30과 EX90의 등장과 유지비의 중요성</h2>
+    <img src="https://images.pexels.com/photos/62689/car-vehicle-automobile-highway-62689.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="section-image" alt="Volvo EX series electric cars driving on a road">
+    <p>볼보자동차의 새로운 전기차 라인업인 <span class="highlight">EX 시리즈(EX30, EX90)</span>는 미래 모빌리티 시장에서 큰 주목을 받고 있습니다. EX30은 도심형 콤팩트 SUV로, 매력적인 가격과 디자인으로 <span class="highlight">MZ세대와 젊은 부부층</span>에게 인기를 얻고 있습니다. 반면, EX90은 볼보의 플래그십 SUV인 XC90의 계보를 잇는 대형 7인승 전기 SUV로, <span class="highlight">안전과 공간 활용성</span>을 중시하는 가족 단위 고객을 겨냥하고 있습니다.</p>
+    <p>하지만 전기차 구매를 결정할 때 가장 중요한 요소는 바로 <span class="highlight">유지비(Maintenance Cost)</span>입니다. 초기 구매 가격 외에도 매일 발생하는 충전 비용, 고가의 부품 교체 비용, 그리고 매년 납부해야 하는 보험료가 전체적인 경제성을 좌우합니다. 특히 볼보는 스웨덴의 프리미엄 브랜드로서, 부품 가격이나 정비 비용이 국산차 대비 높게 책정될 수 있다는 점을 고려해야 합니다. 따라서 EX 시리즈 구매 전, 정확한 유지비 예상 금액을 파악하는 것이 필수적입니다.</p>
+    <p>본 가이드에서는 2026년 기준으로 EX30과 EX90의 예상 유지비를 상세히 분석하고, 기존 내연기관차(ICE) 모델인 XC40이나 XC90과의 <span class="highlight">유지비 차이점</span>을 명확히 제시합니다. 또한, <span class="highlight">전기차 보조금</span>과 세금 감면 혜택, <span class="highlight">장점과 단점</span>을 포함한 종합적인 정보를 제공하여, 합리적인 구매 의사결정에 도움을 드리고자 합니다.</p>
+    
+    <h3>볼보 EX 시리즈 모델별 특징 비교</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>구분</th>
+                <th>볼보 EX30 (콤팩트 SUV)</th>
+                <th>볼보 EX90 (대형 7인승 SUV)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>**차급**</td>
+                <td>소형/준중형 콤팩트 전기 SUV</td>
+                <td>대형 플래그십 전기 SUV</td>
+            </tr>
+            <tr>
+                <td>**주요 타겟층**</td>
+                <td>사회 초년생, 2030세대, 세컨드카</td>
+                <td>가족 단위, 프리미엄 SUV 시장</td>
+            </tr>
+            <tr>
+                <td>**배터리 용량 (예상)**</td>
+                <td>69 kWh (WLTC 기준)</td>
+                <td>111 kWh (WLTC 기준)</td>
+            </tr>
+            <tr>
+                <td>**예상 가격대**</td>
+                <td>5,000만원대 (보조금 미포함)</td>
+                <td>1억 500만원 이상 (보조금 미포함)</td>
+            </tr>
+            <tr>
+                <td>**유지비 특징**</td>
+                <td>낮은 충전 비용, 낮은 보험료(상대적), <span class="highlight">저렴한 초기 구매 가격</span></td>
+                <td>높은 충전 비용(배터리 용량), 높은 보험료, <span class="highlight">첨단 기술 옵션</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="note-box">
+        <h4>📢 2026년도 최신 정보 반영: 보조금 변동성</h4>
+        <p>2026년에는 전기차 보조금 정책이 <span class="highlight">차량 가격 상한선</span>과 <span class="highlight">주행 거리 성능</span>에 따라 더욱 세분화될 것으로 예상됩니다. 특히 EX30의 경우 보조금 100%를 받을 수 있는 가격대(5,500만원 미만)를 목표로 출시될 가능성이 높으며, EX90은 보조금 50%를 적용받거나 보조금 대상에서 제외될 가능성도 있어 <span class="highlight">구매 견적 시 보조금 금액</span>을 꼼꼼히 확인해야 합니다.</p>
+    </div>
+</section>
+
+<hr>
+
+<section id="cost-factors">
+    <span id="cost-factors-anchor" class="anchor"></span>
+    <h2>✅ 볼보 EX 시리즈 유지비 핵심 결정 요인: 충전, 보험, 부품</h2>
+    <p>볼보 EX 시리즈와 같은 전기차의 유지비는 내연기관차와 완전히 다른 구조를 가집니다. 연료비 대신 충전비용, 엔진오일 교환 대신 배터리 및 전기 부품 점검이 핵심입니다. 다음은 2026년 기준으로 볼보 EX 시리즈 유지비를 결정하는 주요 요인들입니다.</p>
+
+    <h3>1. 충전 비용: 가장 큰 변수</h3>
+    <p>전기차 유지비의 약 70~80%는 충전 비용에서 발생합니다. 충전 방식과 시간대에 따라 비용이 천차만별입니다. 특히 <span class="highlight">볼보 EX30의 69kWh 배터리</span>와 <span class="highlight">EX90의 111kWh 배터리</span>는 완충 시 필요 전력량이 다르기 때문에 연간 주행 거리에 따른 비용 계산이 필수입니다. <span class="highlight">충전 비용</span>은 공용 급속 충전(kWh당 300~400원)이 가장 비싸고, 심야 시간대 가정용 충전(kWh당 100원 내외)이 가장 저렴합니다.</p>
+
+    <h3>2. 전기차 보험료: 높은 초기 비용</h3>
+    <p>전기차 보험료는 내연기관차 대비 높은 경향이 있습니다. 특히 <span class="highlight">볼보 EX90과 EX30</span> 모두 프리미엄 브랜드로서 수리비가 높게 책정되어 있습니다. 고가 부품인 <span class="highlight">배터리팩 교체 비용</span>이 보험료 산정에 큰 영향을 미칩니다. 2026년에는 전기차 전용 보험 특약이 확대될 예정이지만, 초기 가입 시에는 내연기관차보다 10%~20%가량 높은 <span class="highlight">견적</span>을 예상해야 합니다. 특히 <span class="highlight">EX90</span>은 고가의 <span class="highlight">라이다 센서</span> 등 첨단 ADAS 기능이 탑재되어 있어 자차보험료가 높습니다.</p>
+
+    <h3>3. 부품 교체 및 소모품 비용: 내연기관차 대비 절감</h3>
+    <p>전기차는 엔진오일, 미션오일, 점화플러그 등 내연기관차의 필수 소모품이 없어 정비 비용이 절감됩니다. 그러나 <span class="highlight">볼보 EX 시리즈</span>는 차량 무게가 무거워 타이어 마모 속도가 빠르고, <span class="highlight">브레이크 패드</span>는 회생 제동 덕분에 수명이 길어집니다. <span class="highlight">EX30과 EX90</span> 모두 배터리 냉각수 교체가 필요하며, 이는 공식 서비스 센터에서 진행해야 합니다. 10만 km 주행 시 내연기관차 대비 <span class="highlight">유지비 절감 효과</span>가 뚜렷하지만, <span class="highlight">배터리 교체 비용</span>이라는 큰 변수가 존재합니다.</p>
+
+    <h3>4. 보조금 및 세제 혜택: 구매 비용 절감</h3>
+    <p>전기차 구매 시 정부 및 지자체 <span class="highlight">보조금 혜택</span>은 초기 구매 비용을 크게 낮춥니다. 2026년에는 보조금 규모가 축소될 가능성이 높지만, 여전히 상당한 <span class="highlight">할인 효과</span>를 제공합니다. EX30은 보조금 100% 대상이 될 가능성이 높으며, EX90은 50% 또는 미대상으로 예상됩니다. 또한, 취득세 감면 혜택도 구매 시 <span class="highlight">예상 금액</span>에 반영해야 합니다.</p>
+</section>
+
+<hr>
+
+<section id="charging-analysis">
+    <span id="charging-analysis-anchor" class="anchor"></span>
+    <h2>📊 충전 비용 심층 분석: 볼보 EX30 vs EX90 연간 예상 비용 비교</h2>
+    <p>볼보 EX 시리즈의 실질적인 유지비를 파악하려면 연간 충전 비용을 정확히 계산해야 합니다. 운전자의 <span class="highlight">연간 주행 거리</span>와 <span class="highlight">충전 환경(주거 형태)</span>에 따라 비용이 수십만 원에서 수백만 원까지 차이가 날 수 있습니다. 다음은 EX30과 EX90 모델을 기준으로 연간 15,000km 주행 시 예상되는 충전 비용 시뮬레이션입니다.</p>
+
+    <h3>볼보 EX 시리즈 연간 충전 비용 시뮬레이션 (15,000km 기준)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>충전 환경</th>
+                <th>볼보 EX30 (배터리 69 kWh)</th>
+                <th>볼보 EX90 (배터리 111 kWh)</th>
+                <th>내연기관차(XC40/XC90)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>**주행 효율 (예상)**</td>
+                <td>약 5.5~6 km/kWh</td>
+                <td>약 3.5~4 km/kWh</td>
+                <td>10~12 km/l (가솔린 기준)</td>
+            </tr>
+            <tr>
+                <td>**필요 전력량/연간**</td>
+                <td>약 2,500 kWh</td>
+                <td>약 4,000 kWh</td>
+                <td>약 1,360 리터</td>
+            </tr>
+            <tr>
+                <td>**가정용 충전 시 (kWh당 100원)**</td>
+                <td>**250,000원**</td>
+                <td>**400,000원**</td>
+                <td rowspan="3">약 2,500,000원 (휘발유 1,850원/l 기준)</td>
+            </tr>
+            <tr>
+                <td>**공용 급속 충전 시 (kWh당 350원)**</td>
+                <td>**875,000원**</td>
+                <td>**1,400,000원**</td>
+            </tr>
+            <tr>
+                <td>**복합 충전 (가정 70% + 공용 30%)**</td>
+                <td>**440,000원**</td>
+                <td>**700,000원**</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>시뮬레이션 결과에서 알 수 있듯이, <span class="highlight">볼보 EX30</span>은 배터리 용량이 상대적으로 작아 충전 비용이 저렴하며, 특히 가정용 충전을 주로 이용하는 경우 연간 유지비가 내연기관차 대비 80% 이상 절감될 수 있습니다. <span class="highlight">볼보 EX90</span>은 대용량 배터리로 인해 충전 비용이 EX30보다 높지만, 여전히 내연기관차 대비 상당한 <span class="highlight">절감 효과</span>가 있습니다.</p>
+
+    <h3>2. 볼보 EX30의 충전 효율성 및 실용성</h3>
+    <p>볼보 EX30은 도심 주행에 최적화된 모델로, <span class="highlight">도심 환경</span>에서 주행 효율이 높습니다. 69kWh 배터리는 1회 충전으로 400km 이상의 주행 거리를 제공하며, 대부분의 일상적인 운전 패턴을 충분히 커버합니다. <span class="highlight">EX30의 장점</span> 중 하나는 저렴한 초기 <span class="highlight">가격</span> 대비 높은 효율성입니다. <span class="highlight">네이버 웹사이트</span>나 <span class="highlight">구글 검색</span>을 통해 EX30 오너들의 <span class="highlight">실제 후기</span>를 찾아보면, <span class="highlight">충전 비용</span> 절감에 대한 만족도가 매우 높음을 알 수 있습니다.</p>
+    
+    <h3>3. 볼보 EX90의 고성능 충전 전략</h3>
+    <p>볼보 EX90은 111kWh의 대용량 배터리와 800V 초급속 충전 시스템을 지원합니다. 이는 장거리 주행 시 충전 시간을 단축시켜주는 <span class="highlight">장점</span>이 있습니다. 다만, 높은 <span class="highlight">충전 비용</span> 부담을 줄이기 위해서는 <span class="highlight">전기 요금제</span>를 심야 시간대로 설정하거나, 할인 혜택이 있는 충전 <span class="highlight">전문 업체</span>의 서비스를 이용하는 것이 필수적입니다. <span class="highlight">볼보 EX90 단점</span>으로 지적되는 높은 초기 구매 비용을 장기적인 유지비 절감으로 상쇄할 수 있는지 꼼꼼히 따져봐야 합니다.</p>
+</section>
+
+<hr>
+
+<section id="subsidies">
+    <span id="subsidies-anchor" class="anchor"></span>
+    <h2>🛡️ 2026년 전기차 보조금 및 세제 혜택 상세 분석</h2>
+    <p>전기차 유지비의 핵심은 초기 구매 시 받는 보조금과 세제 혜택입니다. 2026년에도 이 혜택은 지속되지만, 정부 정책에 따라 세부 기준이 변경됩니다. 특히 <span class="highlight">볼보 EX30과 EX90</span>처럼 가격대가 다른 모델은 받는 혜택의 규모가 크게 다를 수 있습니다.</p>
+
+    <h3>1. 전기차 국고 보조금: EX30 vs EX90</h3>
+    <p>2026년도 <span class="highlight">전기차 보조금</span>은 차량 가격, 주행 성능, 배터리 효율성 등에 따라 차등 지급됩니다. 일반적으로 차량 가격이 5,500만원 미만인 경우 100% 보조금이 지급되며, 5,500만원~8,500만원 구간은 50%, 8,500만원 이상은 보조금이 지급되지 않습니다. <span class="highlight">볼보 EX30의 초기 가격</span>은 5,000만원대 초반으로 책정될 가능성이 높아 <span class="highlight">보조금 100%</span> 혜택을 받을 수 있을 것으로 예상됩니다. 반면 <span class="highlight">볼보 EX90의 가격</span>은 1억 원을 훌쩍 넘기기 때문에 보조금 대상에서 제외될 가능성이 큽니다.</p>
+
+    <h3>2. 지자체 보조금 및 기타 혜택</h3>
+    <p>국고 보조금 외에도 각 지자체별로 별도의 보조금이 지급됩니다. <span class="highlight">볼보 EX30 구매 시</span> 국고 보조금에 지자체 보조금이 더해지면 실구매 <span class="highlight">가격</span>이 크게 낮아집니다. 또한, 전기차는 공영주차장 할인 및 고속도로 통행료 할인 혜택을 받을 수 있어 <span class="highlight">장기적인 유지비 절감</span>에 도움이 됩니다.</p>
+
+    <h3>3. 세제 감면 혜택</h3>
+    <p>전기차 구매 시 취득세가 감면됩니다. 2026년에는 감면 한도가 축소될 수 있지만, 여전히 내연기관차 대비 낮은 세율을 적용받습니다. <span class="highlight">볼보 EX90</span>과 같이 <span class="highlight">가격</span>이 높은 모델의 경우에도 세금 감면 폭이 크기 때문에, 초기 구매 시 <span class="highlight">유지비</span>를 고려할 때 이점을 가질 수 있습니다.</p>
+
+    <div class="note-box">
+        <h4>🚨 보조금 혜택을 위한 팁: 사전 예약 및 신규 혜택</h4>
+        <p>전기차 보조금은 한정된 예산으로 인해 선착순으로 마감되는 경우가 많습니다. <span class="highlight">볼보 EX30</span>처럼 인기가 예상되는 모델은 사전 <span class="highlight">예약</span>을 통해 보조금 확보를 미리 해두는 것이 중요합니다. 또한, <span class="highlight">신규 가입</span> 혜택이나 <span class="highlight">할인 이벤트</span>를 활용하면 추가적인 <span class="highlight">지원금</span>을 받을 수 있습니다.</p>
+    </div>
+</section>
+
+<hr>
+
+<section id="pros-cons">
+    <span id="pros-cons-anchor" class="anchor"></span>
+    <h2>📈 볼보 EX 시리즈 장단점 비교: 유지비 관점에서 본 EX30 vs EX90</h2>
+    <p>EX30과 EX90은 볼보의 전기차 전환을 상징하는 모델이지만, 유지비와 실용성 측면에서 명확한 차이점을 보입니다. 다음은 두 모델의 주요 <span class="highlight">장단점 비교</span> 분석입니다.</p>
+
+    <h3>1. 볼보 EX30의 장점과 단점</h3>
+    <dl>
+        <dt><strong>장점:</strong> 저렴한 유지비와 가격 경쟁력</dt>
+        <dd>EX30의 가장 큰 <span class="highlight">장점</span>은 <span class="highlight">가격</span> 경쟁력입니다. 보조금을 포함하면 4천만원대 <span class="highlight">견적</span>도 가능하여 진입 장벽이 낮습니다. <span class="highlight">유지비</span> 측면에서도 작은 배터리 용량 덕분에 충전 비용이 저렴하며, 도심형으로 설계되어 <span class="highlight">주차 및 운전</span>이 편리합니다.</dd>
+        <dt><strong>단점:</strong> 좁은 공간과 초보적 인포테인먼트</dt>
+        <dd>EX30의 <span class="highlight">단점</span>은 콤팩트 SUV의 한계인 좁은 실내 공간입니다. 또한, 계기판을 삭제하고 중앙 디스플레이에 모든 정보를 집중시켜 <span class="highlight">초보 운전자</span>에게는 다소 불편할 수 있다는 <span class="highlight">후기</span>도 있습니다. <span class="highlight">볼보 디시</span> 등의 커뮤니티에서는 인포테인먼트 시스템의 <span class="highlight">단점</span>에 대한 논의가 활발합니다.</dd>
+    </dl>
+
+    <h3>2. 볼보 EX90의 장점과 단점</h3>
+    <dl>
+        <dt><strong>장점:</strong> 최고 수준의 안전 기술과 공간</dt>
+        <dd>EX90은 <span class="highlight">볼보</span>의 플래그십으로서 최고 수준의 안전 기술을 집약했습니다. <span class="highlight">라이다 센서</span>를 포함한 첨단 ADAS 기능은 운전자의 안전을 보장합니다. 또한, 7인승 대형 SUV로서 <span class="highlight">넉넉한 공간 활용성</span>을 제공하여 가족용 차량으로 <span class="highlight">추천</span>됩니다.</dd>
+        <dt><strong>단점:</strong> 비싼 가격과 높은 유지비</dt>
+        <dd>EX90의 가장 큰 <span class="highlight">단점</span>은 높은 초기 <span class="highlight">가격</span>과 그로 인해 발생하는 <span class="highlight">유지비</span>입니다. <span class="highlight">보험료</span>가 높고, 보조금 혜택을 받기 어려워 초기 투자 <span class="highlight">비용</span>이 매우 높습니다. 또한, 큰 차체와 배터리 용량 때문에 <span class="highlight">전기차 충전 비용</span>도 상대적으로 많이 발생합니다. <span class="highlight">볼보 EX90 유지비</span>를 줄이는 것이 <span class="highlight">가입</span>자의 주요 과제입니다.</dd>
+    </dl>
+</section>
+
+<hr>
+
+<section id="insurance-cost">
+    <span id="insurance-cost-anchor" class="anchor"></span>
+    <h2>💰 볼보 EX 시리즈 전기차 보험료 분석 및 절약 전략</h2>
+    <p>전기차 보험료는 내연기관차와 산출 기준이 다르며, <span class="highlight">볼보 EX 시리즈</span>는 차량 가격과 부품 비용 때문에 일반 전기차보다 보험료가 높을 수 있습니다. 2026년 전기차 <span class="highlight">보험료 할인</span> 혜택과 절약 전략을 알아봅시다.</p>
+
+    <h3>1. 전기차 보험료 할증 요인: 배터리팩과 수리 비용</h3>
+    <p>보험사는 차량 사고 시 수리비를 기준으로 보험료를 산정합니다. 전기차는 배터리팩 교체 비용이 수천만원에 달하고, <span class="highlight">볼보</span>와 같은 프리미엄 수입차는 일반 부품 가격도 높습니다. 따라서 <span class="highlight">볼보 EX 시리즈</span>의 <span class="highlight">보험료 견적</span>은 국산차 대비 높게 책정될 수밖에 없습니다. 특히 <span class="highlight">EX90</span>은 고가의 <span class="highlight">라이다 센서</span>와 ADAS 시스템으로 인해 자차 보험료가 더욱 높습니다.</p>
+
+    <h3>2. 2026년 전기차 보험료 할인 특약</h3>
+    <p>2026년에는 전기차 전용 보험 특약이 확대될 예정입니다. 특히 <span class="highlight">마일리지 특약</span>은 주행 거리가 짧은 운전자에게 유리하며, <span class="highlight">T맵 운전 습관 할인</span>을 통해 안전 운전을 증명하면 <span class="highlight">할인</span>을 받을 수 있습니다. <span class="highlight">볼보 EX30</span> 구매자는 출퇴근 거리가 짧은 경우가 많아 <span class="highlight">마일리지 할인</span>을 적극적으로 활용하는 것이 좋습니다.</p>
+
+    <h3>3. 보험료 절약을 위한 비교 견적</h3>
+    <p>전기차 보험료는 보험사별로 <span class="highlight">가격</span> 차이가 크기 때문에 <span class="highlight">다이렉트 보험 비교 사이트</span>를 통해 최소 10개 이상의 보험사 <span class="highlight">견적</span>을 받아보는 것이 필수적입니다. <span class="highlight">볼보 EX30</span>은 <span class="highlight">신규 가입</span> 시 보험료 할증이 높으므로, <span class="highlight">할인 혜택</span>을 최대한 끌어모아야 합니다. <span class="highlight">저렴한곳</span>을 찾기 위해 <span class="highlight">네이버</span>, <span class="highlight">구글</span>, <span class="highlight">유튜브</span> 등 다양한 채널에서 <span class="highlight">보험 비교 추천</span> 정보를 확인하세요.</p>
+
+    <div class="note-box">
+        <h4>📢 AI 기반 보험료 비교의 중요성</h4>
+        <p>최근에는 <span class="highlight">ChatGPT</span>나 <span class="highlight">Gemini</span>와 같은 <span class="highlight">AI</span>를 활용하여 보험료 <span class="highlight">비교</span> 정보를 얻는 운전자들이 늘고 있습니다. <span class="highlight">AI 에이전트</span>는 <span class="highlight">빅데이터</span>를 기반으로 개인 맞춤형 <span class="highlight">보험 상품</span>을 <span class="highlight">추천</span>해줄 수 있어 <span class="highlight">신규 가입</span>자에게 유용합니다.</p>
+    </div>
+</section>
+
+<hr>
+
+<section id="long-term">
+    <span id="long-term-anchor" class="anchor"></span>
+    <h2>🔮 볼보 EX 시리즈 장기 유지비 전망: 5년차 이후 비용 예측</h2>
+    <p>전기차는 장기 보유 시 내연기관차 대비 총 소유 비용(TCO)이 유리한 경우가 많습니다. <span class="highlight">볼보 EX30과 EX90</span>의 5년차 이후 장기 <span class="highlight">유지비</span> 전망을 분석하여, <span class="highlight">구매 견적</span> 시 고려해야 할 숨겨진 비용을 살펴봅니다.</p>
+
+    <h3>1. 배터리 수명 및 교체 비용</h3>
+    <p>전기차 <span class="highlight">유지비</span>에서 가장 큰 잠재적 비용은 <span class="highlight">배터리 교체 비용</span>입니다. <span class="highlight">볼보 EX 시리즈</span>는 8년 또는 16만km의 배터리 보증 기간을 제공하지만, 보증 기간 이후에는 배터리 성능 저하(SOH)가 발생할 수 있습니다. 5년차 이후 배터리 효율이 70% 이하로 떨어지면 교체를 고려해야 하며, <span class="highlight">EX30</span>의 배터리 <span class="highlight">교체 비용</span>은 수천만원, <span class="highlight">EX90</span>은 1억원에 육박할 수 있습니다. <span class="highlight">중고차 가격</span> 하락에도 큰 영향을 미치는 요인입니다.</p>
+
+    <h3>2. 소프트웨어 업데이트와 AS 비용</h3>
+    <p>볼보는 <span class="highlight">OTA(Over-the-Air)</span> 소프트웨어 업데이트를 통해 차량 기능을 개선합니다. 이는 <span class="highlight">장점</span>이지만, 고장 발생 시 전문 AS 센터에서만 수리가 가능하여 <span class="highlight">정비 비용</span>이 비쌀 수 있습니다. 특히 첨단 ADAS 기능이 많은 <span class="highlight">EX90</span>은 <span class="highlight">수리 비용</span>이 높게 책정될 수 있습니다.</p>
+
+    <h3>3. 중고차 시장 가치 전망</h3>
+    <p>전기차 중고차 시장은 아직 초기 단계에 있습니다. <span class="highlight">볼보 EX30</span>은 높은 인기로 인해 감가상각이 적을 것으로 예상되지만, <span class="highlight">EX90</span>은 고가 모델 특성상 중고차 <span class="highlight">가격</span> 하락폭이 클 수 있습니다. 장기적인 <span class="highlight">유지비</span> 계산에는 중고차 잔존 가치도 포함되어야 합니다.</p>
+
+    <h3>4. 2026년 이후의 전기차 정책 변화 전망</h3>
+    <p>2026년 이후에는 <span class="highlight">전기차 보조금</span>이 완전히 사라지고, 전기차에 대한 세금 부과가 늘어날 수 있습니다. <span class="highlight">유지비</span> 절약을 위해 <span class="highlight">장기적으로</span> 전기차를 보유하려는 운전자는 이러한 정책 변화에도 대비해야 합니다. <span class="highlight">ChatGPT</span>, <span class="highlight">Gemini</span>와 같은 <span class="highlight">AI</span>를 활용하여 최신 정책 정보를 실시간으로 확인하는 것이 도움이 됩니다.</p>
+
+    <div class="note-box">
+        <h4>🚨 유지비 절약 팁: 사설 정비소 활용의 한계</h4>
+        <p><span class="highlight">볼보 EX 시리즈</span>는 고전압 배터리와 첨단 전장 시스템을 탑재하고 있습니다. 단순 소모품 교체 외에는 <span class="highlight">전문 업체</span>가 아닌 <span class="highlight">사설 정비소</span>에서 수리하는 것이 불가능에 가까우므로, <span class="highlight">장기 유지비</span>를 줄이는 데 한계가 있습니다. <span class="highlight">EX30</span>과 <span class="highlight">EX90</span> 모두 <span class="highlight">보증 기간</span> 내에 공식 서비스 센터를 이용하는 것이 안전합니다.</p>
+    </div>
+</section>
+
+<hr>
+
+<section id="faq">
+    <span id="faq-anchor" class="anchor"></span>
+    <h2>❓ 볼보 EX 시리즈 유지비 관련 자주 묻는 질문 (FAQ)</h2>
+    <dl>
+        <dt>Q1: 볼보 EX30의 실질적인 연간 충전 비용은 얼마인가요?</dt>
+        <dd>A: 운전자의 충전 환경에 따라 크게 달라집니다. 가정용 완속 충전기를 사용하는 경우 연간 25만~30만원 수준으로 내연기관차 대비 80% 이상 절감됩니다. 공용 급속 충전을 주로 이용한다면 연간 80만원 이상을 예상해야 합니다.</dd>
+
+        <dt>Q2: EX30과 EX90 중 어떤 모델의 보험료가 더 비싼가요?</dt>
+        <dd>A: <span class="highlight">EX90</span>의 보험료가 훨씬 비쌉니다. <span class="highlight">EX90</span>은 차량 가격이 높고 첨단 ADAS 센서가 많아 사고 시 수리 비용이 고가이기 때문입니다. <span class="highlight">EX30</span>은 상대적으로 보험료가 저렴한 편입니다.</dd>
+
+        <dt>Q3: 전기차 보조금은 2026년에도 받을 수 있나요?</dt>
+        <dd>A: 네, 받을 수 있지만 금액과 조건이 변경될 수 있습니다. <span class="highlight">볼보 EX30</span>은 가격 조건 상 보조금 100% 대상이 될 가능성이 높습니다. <span class="highlight">EX90</span>은 보조금 대상에서 제외될 가능성이 큽니다.</dd>
+
+        <dt>Q4: 볼보 EX 시리즈의 배터리 보증 기간과 수명은 어떻게 되나요?</dt>
+        <dd>A: 볼보는 8년 또는 16만km의 배터리 보증 기간을 제공합니다. <span class="highlight">배터리 수명</span>은 운전 습관에 따라 다르지만, 일반적으로 10년 이상 사용 가능합니다. 다만, 보증 기간 이후 배터리 교체 시 <span class="highlight">비용</span> 부담이 클 수 있습니다.</dd>
+
+        <dt>Q5: 볼보 EX30과 EX90의 <span class="highlight">장단점 비교</span>를 한눈에 볼 수 있는 곳이 있나요?</dt>
+        <dd>A: <span class="highlight">네이버 웹사이트</span>, <span class="highlight">유튜브</span> 등에서 <span class="highlight">볼보 EX30 EX90 장단점 비교</span> 영상이나 <span class="highlight">후기</span>를 찾아볼 수 있습니다. 본 가이드의 <span class="highlight">장단점 비교</span> 섹션을 참고하시는 것도 좋습니다.</dd>
+    </dl>
+</section>
+
+<hr>
+
+<section id="related-keywords">
+    <span id="related-keywords-anchor" class="anchor"></span>
+    <h2>📚 연관 키워드 및 함께 많이 찾는 카테고리</h2>
+    <p>볼보 EX 시리즈 유지비와 관련된 추가적인 정보 탐색을 위한 키워드와 카테고리입니다. 이 키워드들을 통해 더 많은 정보를 얻을 수 있습니다.</p>
+
+    <h3>🔍 자동 완성 키워드 및 연관 검색어</h3>
+    <nav aria-label="관련 검색어">
+        <ul>
+            <li><a href="/">볼보 EX30 유지비</a></li>
+            <li><a href="/">볼보 EX90 유지비</a></li>
+            <li><a href="/">볼보 EX30 가격</a></li>
+            <li><a href="/">볼보 EX30 보조금</a></li>
+            <li><a href="/">볼보 EX90 단점</a></li>
+            <li><a href="/">볼보 XC40 유지비</a></li>
+            <li><a href="/">전기차 보험료 비교</a></li>
+            <li><a href="/">전기차 충전 비용 계산기</a></li>
+            <li><a href="/">볼보 전기차 장단점</a></li>
+            <li><a href="/">볼보 내돈내산 후기</a></li>
+            <li><a href="/">전기차 배터리 교체 비용</a></li>
+            <li><a href="/">2026년 전기차 보조금 혜택</a></li>
+            <li><a href="/">볼보 디시</a></li>
+            <li><a href="/">볼보 신규 가입 혜택</a></li>
+            <li><a href="/">볼보 EX30 저렴한곳</a></li>
+        </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+    <h3>🗂️ 함께 많이 찾는 카테고리</h3>
+    <nav aria-label="함께 많이 찾는 카테고리">
+        <ul>
+            <li><a href="/">전기차 보조금 전문 업체</a></li>
+            <li><a href="/">볼보 딜러사 비교</a></li>
+            <li><a href="/">전기차 보험 상품 비교</a></li>
+            <li><a href="/">전기차 충전소 찾기</a></li>
+            <li><a href="/">자동차 명의이전 보험</a></li>
+            <li><a href="/">전기차 리스 장단점</a></li>
+            <li><a href="/">중고 전기차 가격 순위</a></li>
+        </ul>
+    </nav>
+</section>
+
+<hr>
+
+<section id="trust-sites">
+    <span id="trust-sites-anchor" class="anchor"></span>
+    <h2>🏛️ 신뢰성 높은 공인 외부 정보 출처 (5개 이상)</h2>
+    <p>볼보 EX 시리즈 유지비, 보조금, 전기차 정책 관련 공식 정보는 다음 공신력 있는 기관의 정보를 통해 확인하실 수 있습니다.</p>
+    <ul>
+        <li><a href="https://www.carinsure.or.kr" target="_blank" rel="noopener noreferrer">**자동차보험 통합 비교 포털**</a>: 전기차 보험료 비교 및 상품별 최신 정보 제공.</li>
+        <li><a href="https://www.ev.or.kr" target="_blank" rel="noopener noreferrer">**무공해차 통합누리집**</a>: 환경부 전기차 구매 보조금 정책 및 충전소 정보 제공.</li>
+        <li><a href="https://www.kofia.or.kr" target="_blank" rel="noopener noreferrer">**손해보험협회**</a>: 전기차 보험 상품 및 보험료 산정 기준 관련 정보.</li>
+        <li><a href="https://www.kidi.or.kr" target="_blank" rel="noopener noreferrer">**보험개발원 (KIDI)**</a>: 차량 모델별 보험 요율 등급 정보 제공.</li>
+        <li><a href="https://www.law.go.kr" target="_blank" rel="noopener noreferrer">**국가법령정보센터**</a>: 자동차 손해배상 보장법 및 전기차 관련 법규 확인.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="quote-form">
+    <span id="quote-form-anchor" class="anchor"></span>
+    <h2>📞 볼보 EX 시리즈 최적화 유지비 맞춤 견적 문의하기</h2>
+    <p>볼보 EX 시리즈 구매 시 예상되는 <span class="highlight">총 소유 비용(TCO)</span>을 상세히 분석하여 합리적인 구매를 돕습니다. <span class="highlight">보조금 혜택</span>과 <span class="highlight">보험료 견적</span>을 포함한 맞춤형 컨설팅을 지금 바로 신청하세요. 상담 신청 시 입력 항목이 많아질수록 <span class="highlight">AI 기반</span>으로 더욱 정확한 <span class="highlight">견적</span>을 제공할 수 있습니다.</p>
+
+    <form id="insurance-quote-form" action="#" method="POST" style="max-width:700px; margin:auto;">
+        <h3>1. 기본 정보</h3>
+        <label for="name">성함<span style="color:red;">*</span></label>
+        <input type="text" id="name" name="name" placeholder="홍길동" required />
+
+        <label for="phone">휴대폰 번호<span style="color:red;">*</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="010-XXXX-XXXX" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}|[0-9]{11}" required />
+
+        <label for="birthdate">생년월일 (만 나이 확인용)<span style="color:red;">*</span></label>
+        <input type="text" id="birthdate" name="birthdate" placeholder="YYYYMMDD (예: 19901103)" pattern="[0-9]{8}" required />
+
+        <h3>2. 희망 차량 정보</h3>
+        <label for="car-model">관심 차량 모델<span style="color:red;">*</span></label>
+        <select id="car-model" name="car_model" required>
+            <option value="EX30">볼보 EX30 (콤팩트 SUV)</option>
+            <option value="EX90">볼보 EX90 (대형 7인승 SUV)</option>
+            <option value="other">기타 볼보 모델 (XC40 Recharge, C40 등)</option>
+        </select>
+        
+        <label for="car-usage">주요 차량 사용 목적<span style="color:red;">*</span></label>
+        <select id="car-usage" name="car_usage" required>
+            <option value="commute">출퇴근용</option>
+            <option value="family">가족용 (패밀리카)</option>
+            <option value="business">업무용</option>
+            <option value="leisure">레저/여행용</option>
+        </select>
+
+        <label for="current-car-model">현재 보유 차량 모델 및 연식 (유지비 비교용)</label>
+        <input type="text" id="current-car-model" name="current_car_model" placeholder="예: 2020년식 현대 싼타페 가솔린" />
+
+        <h3>3. 유지비 관련 상세 정보</h3>
+        <label for="annual-mileage">연간 예상 주행 거리(km)<span style="color:red;">*</span></label>
+        <input type="number" id="annual-mileage" name="annual_mileage" min="1000" max="50000" placeholder="예: 15000 (km)" required />
+
+        <label for="charging-environment">주요 충전 환경<span style="color:red;">*</span></label>
+        <select id="charging-environment" name="charging_environment" required>
+            <option value="home">집밥 (가정용 완속 충전기)</option>
+            <option value="public">회사 또는 공용 충전소</option>
+            <option value="mix">복합 (가정용 + 공용)</option>
+        </select>
+        
+        <label for="insurance-career-years">보험 가입 경력(년)<span style="color:red;">*</span></label>
+        <input type="number" id="insurance-career-years" name="insurance_career_years" min="0" max="60" placeholder="예: 3 (보험 가입 경력)" required />
+        
+        <label for="message">문의 내용 및 요청 사항</label>
+        <textarea id="message" name="message" rows="5" placeholder="EX30과 EX90의 유지비 차이가 궁금합니다. 보조금 혜택을 최대로 받는 방법도 알려주세요."></textarea>
+
+        <button class="btn-cta" type="submit">✅ 맞춤 유지비 견적 요청 및 상담 시작하기</button>
+    </form>
+</section>
+
+  
